@@ -399,31 +399,37 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .skills-list {
-    flex-direction: column;
-  }
-
-  .skill {
-    width: 100%;
+  body {
+    padding: 20px;
+    font-size: 1rem;
   }
 
   header h1 {
     font-size: 2rem;
   }
 
-  header .tagline {
-    font-size: 1rem;
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
-  header .summary {
-    font-size: 0.9rem;
+  .social-links a {
+    font-size: 2rem; /* Reduce icon size a little for mobile */
+    margin: 5px;
   }
 
-  section h2 {
-    font-size: 2rem;
+  .section-divider {
+    width: 90%;
+    margin: 30px auto;
   }
 
-  .container {
+  .project {
     padding: 10px;
+    margin-bottom: 30px;
+  }
+
+  footer p {
+    font-size: 0.9rem;
   }
 }
