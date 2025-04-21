@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const target = document.querySelector(this.getAttribute("href"));
       if (target) {
         e.preventDefault();
-        const offset = 70; // Adjust if you have fixed nav height
+        const offset = 70;
         const targetPosition =
           target.getBoundingClientRect().top + window.pageYOffset - offset;
 
@@ -39,14 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
           navMenu.classList.remove("active");
         }
 
-        // Hide dropdown if open
-        const dropdowns = document.querySelectorAll(".dropdown-content");
-        dropdowns.forEach((d) => (d.style.display = "none"));
+        // Hide all dropdowns
+        document.querySelectorAll(".dropdown-content").forEach((d) => {
+          d.classList.remove("show");
+        });
       }
     });
   });
 
-  // Animate progress bars with color
+  // Animate progress bars
   const skills = document.querySelectorAll(".progress");
   const observer = new IntersectionObserver(
     (entries) => {
@@ -69,8 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   skills.forEach((skill) => observer.observe(skill));
 
   // Toggle Read More buttons
-  const readMoreButtons = document.querySelectorAll(".read-more-btn");
-  readMoreButtons.forEach((btn) => {
+  document.querySelectorAll(".read-more-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
       const jobDesc = btn.closest(".job-description");
       const additionalInfo = jobDesc.querySelector(".additional-info");
@@ -98,14 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       e.stopPropagation();
 
-      // Close all others first
+      // Close all other dropdowns
       document.querySelectorAll(".dropdown-content").forEach((menu) => {
-        if (menu !== dropdown) menu.style.display = "none";
+        if (menu !== dropdown) menu.classList.remove("show");
       });
 
-      // Toggle current
-      dropdown.style.display =
-        dropdown.style.display === "block" ? "none" : "block";
+      // Toggle current dropdown
+      dropdown.classList.toggle("show");
     });
   });
 
@@ -126,18 +125,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Hide dropdown after click
-        this.closest(".dropdown-content").style.display = "none";
+        document
+          .querySelectorAll(".dropdown-content")
+          .forEach((menu) => menu.classList.remove("show"));
       }
     });
   });
 
   // Close dropdown when clicking outside
   document.addEventListener("click", (e) => {
-    const dropdowns = document.querySelectorAll(".dropdown-content");
-    dropdowns.forEach((dropdown) => {
+    document.querySelectorAll(".dropdown-content").forEach((dropdown) => {
       const toggle = dropdown.previousElementSibling;
       if (!dropdown.contains(e.target) && !toggle.contains(e.target)) {
-        dropdown.style.display = "none";
+        dropdown.classList.remove("show");
       }
     });
   });
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Toggle hamburger menu (mobile)
+  // Hamburger menu toggle
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
   if (hamburger && navMenu) {

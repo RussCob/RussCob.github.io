@@ -1,3 +1,17 @@
+/* Apply Google Fonts */
+body {
+  font-family: "Roboto", sans-serif; /* Default font for body text */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", sans-serif; /* Apply Open Sans for headers */
+}
+
 /* Global Reset */
 * {
   margin: 0;
@@ -5,12 +19,11 @@
   box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
-  font-family: "Arial", sans-serif;
   line-height: 1.6;
   background-color: #f4f4f4;
   color: #333;
-  padding-top: 0px; /* Adjusted padding to prevent content being hidden under sticky header */
 }
 
 .container {
@@ -20,10 +33,18 @@ body {
   padding: 20px;
 }
 
-/* Basic Header Styles */
+/* Sticky Header */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 header .container {
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px 20px;
 }
 
 header h1 {
@@ -33,7 +54,7 @@ header h1 {
 
 header .tagline {
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 header .summary {
@@ -42,35 +63,31 @@ header .summary {
 }
 
 header .social-links {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
-header .social-links a {
-  color: #0077b5;
-  text-decoration: none;
+.social-links a {
+  font-size: 2.5rem;
+  color: #333;
   margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-header .social-links a:hover {
-  text-decoration: underline;
+.social-links a:hover {
+  color: #0077b5;
 }
 
-/* Sticky Header Adjustment */
-header {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 1000; /* Ensure it's on top of other elements */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for visual effect */
+.social-links a:nth-child(2):hover {
+  color: #333;
 }
 
-/* Add offset for sticky header */
 html {
-  scroll-padding-top: 120px; /* Adjust this value based on your header height */
-  scroll-behavior: smooth; /* Smooth scroll behavior */
+  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
 }
 
-/* Navigation Bar Below Header */
+/* Navigation Bar */
 .nav-container {
   background-color: #005fa3;
   padding: 10px 0;
@@ -80,7 +97,6 @@ nav ul {
   list-style-type: none;
   display: flex;
   justify-content: center;
-  padding: 0;
   margin: 0;
 }
 
@@ -100,10 +116,6 @@ nav ul li a:hover {
   background-color: #003d73;
 }
 
-nav ul li.dropdown {
-  position: relative;
-}
-
 nav ul li .dropdown-content {
   display: none;
   position: absolute;
@@ -120,24 +132,28 @@ nav ul li:hover .dropdown-content {
 nav ul li .dropdown-content a {
   color: #000;
   padding: 12px 16px;
-  text-decoration: none;
   display: block;
+  text-decoration: none;
 }
 
 nav ul li .dropdown-content a:hover {
   background-color: #ddd;
 }
 
+/* Section Base Styling */
+section {
+  padding: 120px 0;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 120px;
+}
+
 /* Skills Section */
 #skills {
   background: #ffffff;
-  padding: 240px 0; /* Reduced padding */
-}
-
-#skills h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
 }
 
 .skills-list {
@@ -148,7 +164,7 @@ nav ul li .dropdown-content a:hover {
 
 .skill {
   width: 48%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .skill span {
@@ -158,44 +174,40 @@ nav ul li .dropdown-content a:hover {
   margin-bottom: 10px;
 }
 
-/* Progress bar container */
+/* Progress Bars */
 .progress-container {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
 }
 
-/* Progress bar styles */
 .progress {
   position: relative;
   height: 30px;
-  background-color: #e0e0e0; /* Light gray background */
+  background-color: #e0e0e0;
   border-radius: 10px;
   margin: 10px 0;
-  width: 0%; /* Start at 0 width */
-  transition: width 2s ease-out; /* Smooth transition */
-  overflow: hidden; /* Hide anything outside of the progress bar */
+  width: 0%;
+  transition: width 2s ease-out;
+  overflow: hidden;
 }
 
-/* Active progress bar color */
 .progress[data-width="80%"] {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
 }
 
 .progress[data-width="90%"] {
-  background-color: #2196f3; /* Blue */
+  background-color: #2196f3;
 }
 
 .progress[data-width="75%"] {
-  background-color: #ff9800; /* Orange */
+  background-color: #ff9800;
 }
 
 .progress[data-width="95%"] {
-  background-color: #f44336; /* Red */
+  background-color: #f44336;
 }
 
-/* Adding the text inside the progress bar */
 .progress::after {
   content: attr(data-width);
   position: absolute;
@@ -203,20 +215,14 @@ nav ul li .dropdown-content a:hover {
   text-align: center;
   line-height: 30px;
   font-weight: bold;
-  color: #fff; /* White text for contrast */
+  color: #fff;
   z-index: 2;
 }
 
 /* Experience Section */
 #experience {
   background: #f9f9f9;
-  padding: 240px 0; /* Reduced padding */
-}
-
-#experience h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  padding-top: 100px; /* Adjust this line for top padding */
 }
 
 .job {
@@ -258,42 +264,51 @@ nav ul li .dropdown-content a:hover {
   background: #003d73;
 }
 
-/* Projects Section */
+/* Fix scroll issue with anchor links (prevents overlapping from sticky nav) */
+html {
+  scroll-padding-top: 100px; /* Adjust if your sticky navbar is taller or shorter */
+}
+
+/* Projects Section Container */
 #projects {
   background: #ffffff;
-  padding: 180px 0; /* Reduced padding */
+  padding: 60px 20px; /* Added padding for better spacing */
 }
 
-#projects h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 180px;
-}
-
+/* Individual Project Block */
 .project {
-  margin-bottom: 180px;
+  margin-bottom: 80px; /* Increased spacing between projects */
 }
 
+/* Project Title */
 .project h3 {
-  font-size: 1.6rem;
+  font-size: 2rem; /* Bigger title */
   color: #005fa3;
+  margin-bottom: 20px; /* Space below title */
 }
 
+/* Project Description Paragraph */
 .project p {
-  font-size: 1.1rem;
-  color: #555;
+  font-size: 1.3rem; /* Larger body text */
+  color: #444; /* Slightly darker for better contrast */
+  line-height: 1.7; /* More spacing between lines */
+  margin-bottom: 12px; /* Added spacing between paragraphs */
+}
+
+/* Section Divider */
+.section-divider {
+  height: 2px;
+  width: 80%;
+  margin: 60px auto;
+  background: linear-gradient(to right, #4caf50, #2196f3);
+  border-radius: 1px;
+  opacity: 0.8;
 }
 
 /* Education Section */
 #education {
   background: #f9f9f9;
-  padding: 240px 0; /* Reduced padding */
-}
-
-#education h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  padding-top: 100px; /* Adjust this line for top padding */
 }
 
 #education p {
@@ -305,13 +320,6 @@ nav ul li .dropdown-content a:hover {
 /* Contact Section */
 #contact {
   background: #ffffff;
-  padding: 240px 0; /* Adjusted padding */
-}
-
-#contact h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
 }
 
 form {
@@ -361,7 +369,22 @@ button:hover {
   background: #003d73;
 }
 
-/* Footer Section */
+/* Fancy Footer */
+.fancy-footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: #1c1c1c;
+  color: #ccc;
+  font-size: 0.9rem;
+  border-top: 2px solid #4caf50;
+}
+
+.fancy-footer p {
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Bottom Footer */
 footer {
   background: #005fa3;
   color: #fff;
@@ -385,7 +408,7 @@ footer p {
   }
 
   header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   header .tagline {
@@ -396,33 +419,11 @@ footer p {
     font-size: 0.9rem;
   }
 
-  #skills h2,
-  #experience h2,
-  #projects h2,
-  #education h2,
-  #contact h2 {
+  section h2 {
     font-size: 2rem;
   }
 
   .container {
     padding: 10px;
-  }
-
-  button {
-    font-size: 1rem;
-  }
-
-  /* Resume Button */
-  .download-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-  }
-
-  .download-btn:hover {
-    background-color: #218838;
   }
 }
