@@ -34,7 +34,7 @@ body {
   padding: 20px;
 }
 
-/* Sticky Header */
+/* Sticky Header for Web */
 header {
   position: sticky;
   top: 0;
@@ -437,6 +437,11 @@ footer p {
 
   footer p {
     font-size: 0.9rem;
+  }
+
+  /* Disable sticky header on mobile devices */
+  header {
+    position: relative;
   }
 }
 
