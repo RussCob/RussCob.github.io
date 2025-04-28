@@ -1,15 +1,16 @@
 /* Apply Google Fonts */
 body {
-  font-family: "Roboto", sans-serif; /* Default font for body text */
+  font-family: "Roboto", sans-serif;
 }
 
+/* Header Fonts */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", sans-serif; /* Apply Open Sans for headers */
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Global Reset */
@@ -82,6 +83,7 @@ header .social-links {
   color: #333;
 }
 
+/* Scroll Settings */
 html {
   scroll-padding-top: 100px;
   scroll-behavior: smooth;
@@ -222,7 +224,7 @@ section h2 {
 /* Experience Section */
 #experience {
   background: #f9f9f9;
-  padding-top: 100px; /* Adjust this line for top padding */
+  padding-top: 100px;
 }
 
 .job {
@@ -264,35 +266,27 @@ section h2 {
   background: #003d73;
 }
 
-/* Fix scroll issue with anchor links (prevents overlapping from sticky nav) */
-html {
-  scroll-padding-top: 100px; /* Adjust if your sticky navbar is taller or shorter */
-}
-
-/* Projects Section Container */
+/* Projects Section */
 #projects {
   background: #ffffff;
-  padding: 60px 20px; /* Added padding for better spacing */
+  padding: 60px 20px;
 }
 
-/* Individual Project Block */
 .project {
-  margin-bottom: 80px; /* Increased spacing between projects */
+  margin-bottom: 80px;
 }
 
-/* Project Title */
 .project h3 {
-  font-size: 2rem; /* Bigger title */
+  font-size: 2rem;
   color: #005fa3;
-  margin-bottom: 20px; /* Space below title */
+  margin-bottom: 20px;
 }
 
-/* Project Description Paragraph */
 .project p {
-  font-size: 1.3rem; /* Larger body text */
-  color: #444; /* Slightly darker for better contrast */
-  line-height: 1.7; /* More spacing between lines */
-  margin-bottom: 12px; /* Added spacing between paragraphs */
+  font-size: 1.3rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 12px;
 }
 
 /* Section Divider */
@@ -308,7 +302,7 @@ html {
 /* Education Section */
 #education {
   background: #f9f9f9;
-  padding-top: 100px; /* Adjust this line for top padding */
+  padding-top: 100px;
 }
 
 #education p {
@@ -398,6 +392,8 @@ footer p {
 }
 
 /* Responsive Design */
+
+/* For tablet and small desktop */
 @media (max-width: 768px) {
   body {
     padding: 20px;
@@ -415,8 +411,18 @@ footer p {
   }
 
   .social-links a {
-    font-size: 2rem; /* Reduce icon size a little for mobile */
+    font-size: 2rem;
     margin: 5px;
+  }
+
+  .skills-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill {
+    width: 100%;
+    text-align: center;
   }
 
   .section-divider {
@@ -431,5 +437,66 @@ footer p {
 
   footer p {
     font-size: 0.9rem;
+  }
+}
+
+/* For mobile very small devices */
+@media (max-width: 430px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  header .container {
+    padding: 20px 10px;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header .tagline {
+    font-size: 1rem;
+  }
+
+  header .summary {
+    font-size: 0.9rem;
+  }
+
+  .social-links a {
+    font-size: 1.8rem;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 60px;
+  }
+
+  .project h3 {
+    font-size: 1.5rem;
+  }
+
+  .project p {
+    font-size: 1.1rem;
+  }
+
+  .job h3 {
+    font-size: 1.5rem;
+  }
+
+  .job p {
+    font-size: 1rem;
+  }
+
+  label,
+  input,
+  textarea,
+  button {
+    font-size: 1rem;
   }
 }
